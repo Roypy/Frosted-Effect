@@ -1,0 +1,111 @@
+// Path: index.scss
+// language:scss
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+:root {
+  color: white;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  --product-price-font-family: 'Montserrat', sans-serif;
+  --card-caption-font-size: 1.2rem;
+  --font-family-roboto-condensed: "Roboto Condensed", sans-serif;
+  --specs-card-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+  --specs-card-bg-color: #181621;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  // background: url(https://source.unsplash.com/random/?space/414x896) no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  align-items: center;
+  overflow: visible;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #1f1f1f;
+}
+
+.hero {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: 1fr 0.8fr 0.8fr 0.8fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    ".. hero-card-1 hero-card-2 hero-card-3  .."
+    ".. hero hero .. ..";
+
+  .hero-card-1 {
+    display: block;
+    grid-area: hero-card-1;
+
+    .product-header {
+      text-transform: uppercase;
+      font-family: var(--font-family-roboto-condensed);
+      text-align: center;
+    }
+    .image-container {
+      display: block;
+      text-align: center;
+
+      img {
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 100%;
+        border-radius: 5%;
+      }
+
+      .caption-container {
+        .caption-text {
+          // margin syntax: top right bottom left
+          // absolute position
+          position: sticky;
+          font-size: var(--card-caption-font-size);
+          word-wrap: none;
+        }
+      }
+
+      .specs-container {
+        display: flex;
+        padding: 10px;
+        width: auto;
+        font-family: var(--font-family-roboto-condensed);
+        flex-direction: column;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: white;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        background-color: #181621;
+        border-radius: 5%;
+        box-shadow: var(--specs-card-box-shadow);
+      }
+    }
+
+    .price {
+      font-family: var(--product-price-font-family);
+      text-align: center;
+      margin-right: 1rem; // make up for pseudo-element margin and center the text
+      &:before {
+        content: "$";
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  .hero-card-2 {
+    display: block;
+    grid-area: hero-card-2;
+  }
+
+  .hero-card-3 {
+    display: block;
+    grid-area: hero-card-3;
+  }
+}
